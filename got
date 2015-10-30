@@ -1,0 +1,8 @@
+#!/bin/bash
+
+FULLNAME=`finger -l | grep "Name:" | awk {'$1=$2=$3=""; gsub(/  /, "" ,$0); print $0'}`
+FULLNAME="$(echo -e "${FULLNAME}" | sed -e 's/^[[:space:]]*//')"
+
+echo "You know nothing, $FULLNAME"
+
+git "$@"
